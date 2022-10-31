@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useCart } from "../services/cartContext";
 import { urlFor, client } from "../lib/client";
 import { Divider } from "antd";
