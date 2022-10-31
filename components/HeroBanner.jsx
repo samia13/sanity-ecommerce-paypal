@@ -41,7 +41,10 @@ const HeroBanner = ({ slider }) => {
           </div>
         </div>
         <div className='right'>
-          <img src={image} alt={product} />
+          <picture>
+            <source srcSet={image} type='image/webp' />
+            <img src={image} alt={product} />
+          </picture>
         </div>
       </div>
     );

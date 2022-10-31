@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { AiOutlineShopping, AiOutlineHome } from "react-icons/ai";
 import { useCart } from "../services/cartContext";
 
@@ -13,9 +14,9 @@ const Header = ({ origin }) => {
   return (
     <header className={origin}>
       <div className='container'>
-        <a href='/' className='logo'>
-          ShopX
-        </a>
+        <Link href='/'>
+          <a className='logo'>ShopX</a>
+        </Link>
         <nav>
           <div className='toggle-menu'>
             <span></span>
@@ -24,16 +25,20 @@ const Header = ({ origin }) => {
           </div>
           <ul>
             <li>
-              <a className='active' href='/'>
-                <AiOutlineHome /> <span>Home</span>
-              </a>
+              <Link href='/'>
+                <a className='active'>
+                  <AiOutlineHome /> <span>Home</span>
+                </a>
+              </Link>
             </li>
             <li>
-              <a href='/cart' className='badge-wrapper'>
-                <AiOutlineShopping />
-                <span className='xs-show'>Cart</span>
-                <span className='badge-count'>{count}</span>
-              </a>
+              <Link href='/cart'>
+                <a className='badge-wrapper'>
+                  <AiOutlineShopping />
+                  <span className='xs-show'>Cart</span>
+                  <span className='badge-count'>{count}</span>
+                </a>
+              </Link>
             </li>
           </ul>
         </nav>

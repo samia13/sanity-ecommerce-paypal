@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import {
   PayPalScriptProvider,
   PayPalButtons,
@@ -18,38 +18,20 @@ const myOptions = {
 };
 
 // Custom component to wrap the PayPalButtons and handle currency changes
-const ButtonWrapper = ({
-  currency,
-  showSpinner,
-  orderedProducts,
-  emptyCart,
-  router,
-}) => {
+const ButtonWrapper = ({ orderedProducts, emptyCart, router }) => {
   // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
   // This is the main reason to wrap the PayPalButtons in a new component
-  const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
+  // const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
   const units = orderedProducts.map((p) => ({
     reference_id: p.id,
     amount: { value: p.price },
   }));
-  useEffect(() => {
-    dispatch({
-      type: "resetOptions",
-      value: {
-        ...options,
-        currency: currency,
-      },
-    });
-  }, [currency, showSpinner]);
 
   return (
     <>
-      {showSpinner && isPending && <div className='spinner' />}
       <PayPalButtons
         style={style}
         disabled={false}
-        forceReRender={[amount, currency, style]}
-        fundingSource={undefined}
         createOrder={(data, actions) => {
           return actions.order
             .create({
@@ -87,8 +69,6 @@ export default function PaypalCheckoutButton({ products }) {
     <div style={{ maxWidth: "750px", minHeight: "200px" }}>
       <PayPalScriptProvider options={myOptions}>
         <ButtonWrapper
-          currency={currency}
-          showSpinner={false}
           orderedProducts={products}
           emptyCart={dispatch}
           router={router}

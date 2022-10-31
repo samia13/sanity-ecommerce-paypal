@@ -15,17 +15,20 @@ const Cart = ({ products }) => {
     const { price, name, image } = products.find((p) => p._id == id);
     return (
       <li key={id} className='cart-item '>
-        <Image
-          className='mr-20'
-          style={{
-            height: "130px",
-            width: "180px",
-            objectFit: "cover",
-            flexShrink: "0",
-          }}
-          src={urlFor(image[0])}
-          alt={name}
-        />
+        <picture>
+          <source srcSet={urlFor(image[0])} type='image/webp' />
+          <img
+            className='mr-20'
+            style={{
+              height: "130px",
+              width: "180px",
+              objectFit: "cover",
+              flexShrink: "0",
+            }}
+            src={urlFor(image[0])}
+            alt={name}
+          />
+        </picture>
         <div>
           <h3>{name}</h3>
           <p>${price}</p>
@@ -63,7 +66,7 @@ const Cart = ({ products }) => {
       <div className='container'>
         {cart.length == 0 ? (
           <p>
-            You haven't placed any order yet! <br />
+            You haven&apos;t placed any order yet! <br />
             Please visit Home page <Link href='/#categories'>Here</Link>
           </p>
         ) : (

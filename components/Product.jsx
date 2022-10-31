@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import React from "react";
 import { urlFor } from "../lib/client";
 
@@ -11,7 +12,10 @@ const Product = ({
   return (
     <div className={`product ${transition ?? transition}`}>
       <div className='image-wrapper'>
-        <img src={source} alt={name} />
+        <picture>
+          <source srcSet={source} type='image/webp' />
+          <img src={source} alt={name} />
+        </picture>
       </div>
       <Link href={url}>
         <h4>{name}</h4>

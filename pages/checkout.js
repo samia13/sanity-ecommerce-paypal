@@ -10,7 +10,6 @@ const Checkout = ({ products }) => {
     const { price, name } = products.find((p) => p._id === el.id);
     return { ...el, price, name };
   });
-  console.log(productsInCart);
   const columns = [
     {
       title: "Name",

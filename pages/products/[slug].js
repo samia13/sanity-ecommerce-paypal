@@ -66,33 +66,42 @@ const ProductDetail = ({ similarProducts, singleProduct }) => {
                   {image.map((img, index) => {
                     let src = urlFor(img);
                     return (
-                      <img
-                        key={index}
-                        style={{
-                          height: "150px",
-                          maxWidth: "100%",
-                          marginBottom: "10px",
-                          background: "whitesmoke",
-                          objectFit: "cover",
-                          cursor: "pointer",
-                          filter:
-                            currentImageIndex == index
-                              ? "opacity(0.5)"
-                              : "unset",
-                        }}
-                        src={src}
-                        alt={`${name} image ${index}`}
-                        onClick={() => setCurrentImageIndex(index)}
-                      />
+                      <picture key={index}>
+                        <source srcSet={src} type='image/webp' />
+                        <img
+                          key={index}
+                          style={{
+                            height: "150px",
+                            width: "100%",
+                            marginBottom: "10px",
+                            background: "whitesmoke",
+                            objectFit: "cover",
+                            cursor: "pointer",
+                            filter:
+                              currentImageIndex == index
+                                ? "opacity(0.5)"
+                                : "unset",
+                          }}
+                          src={src}
+                          alt={`${name} image ${index}`}
+                          onClick={() => setCurrentImageIndex(index)}
+                        />
+                      </picture>
                     );
                   })}
                 </div>
               )}
-              <img
-                className='mainImage'
-                src={urlFor(image[currentImageIndex])}
-                alt={name}
-              />
+              <picture>
+                <source
+                  srcSet={urlFor(image[currentImageIndex])}
+                  type='image/webp'
+                />
+                <img
+                  className='mainImage'
+                  src={urlFor(image[currentImageIndex])}
+                  alt={name}
+                />
+              </picture>
             </div>
 
             <div className='detail'>

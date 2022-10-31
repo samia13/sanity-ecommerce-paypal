@@ -12,7 +12,10 @@ export const Banner = ({ banner }) => {
         <h3>${banner.price}</h3>
       </div>
       <div className='middle'>
-        <img src={image} alt={banner.product} />
+        <picture>
+          <source srcSet={image} type='image/webp' />
+          <img src={image} alt={banner.product} />
+        </picture>
       </div>
       <div className='right'>
         <h1>{banner.discount} OFF</h1>
