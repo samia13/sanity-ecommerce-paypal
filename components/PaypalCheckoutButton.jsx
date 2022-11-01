@@ -12,7 +12,7 @@ const amount = "2";
 const currency = "USD";
 const style = { layout: "vertical" };
 const myOptions = {
-  "client-id": "AcAKH5oAWNi-LR3C1beynnl9iqECvGc3Pjw8B2ow3FE08WghGr6_Y23RgxV5UJoxjUxdRg5pcqOYgjTn",
+  "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
   components: "buttons",
   currency: "USD",
 };
