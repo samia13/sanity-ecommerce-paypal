@@ -12,7 +12,7 @@ const amount = "2";
 const currency = "USD";
 const style = { layout: "vertical" };
 const myOptions = {
-  "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID,
+  "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
   components: "buttons",
   currency: "USD",
 };

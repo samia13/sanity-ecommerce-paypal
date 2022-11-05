@@ -59,6 +59,7 @@ const ProductDetail = ({ similarProducts, singleProduct }) => {
                 display: "flex",
                 marginRight: "20px",
                 marginBottom: "20px",
+                width: "100%",
               }}
             >
               {image.length > 0 && (
@@ -72,7 +73,7 @@ const ProductDetail = ({ similarProducts, singleProduct }) => {
                           key={index}
                           style={{
                             height: "150px",
-                            width: "100%",
+                            // maxWidth: "100%",
                             marginBottom: "10px",
                             background: "whitesmoke",
                             objectFit: "cover",
