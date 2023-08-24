@@ -91,7 +91,7 @@ const Cart = ({ products }) => {
                   {productsInCart.reduce(
                     (prev, curr) => prev + curr.price * curr.quantity,
                     0
-                  )}
+                  ).toFixed(3)}
                 </span>
               </h3>
               <br />
