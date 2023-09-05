@@ -1,4 +1,4 @@
-## live demo 
+## Live demo 
 [sanity ecommerce app](https://sanity-ecommerce-paypal.vercel.app/)
 
 ## ShopX 🎽🎧
