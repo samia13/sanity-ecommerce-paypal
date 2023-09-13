@@ -18,7 +18,7 @@ const Header = ({ origin }) => {
       <div className='container'>
         <Link href='/'>
           <a className='logo' onClick={toggleMenu}>
-            ShopX
+            GearUp
           </a>
         </Link>
         <nav>
